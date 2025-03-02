@@ -3,10 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ゆんのページ</title>
+    <title>パスワード認証</title>
+    <script>
+        function checkPassword() {
+            var password = prompt("パスワードを入力してください:");
+            if (password === "1234") { /Aruha_ghost/
+                document.getElementById("content").style.display = "block";
+                document.getElementById("lock").style.display = "none";
+            } else {
+                alert("パスワードが違います！");
+            }
+        }
+    </script>
 </head>
-<body>
-    <h1>こんにちは！</h1>
-    <p>ここに好きなことを書いてみよう！</p>
+<body onload="checkPassword()">
+
+    <div id="lock">
+        <p>ページを開くにはパスワードが必要です。</p>
+    </div>
+
+    <div id="content" style="display:none;">
+        <h1>ようこそ！</h1>
+        <p>ここに秘密の内容を書こう！</p>
+    </div>
+
 </body>
 </html>
