@@ -7,11 +7,12 @@
     <script>
         function checkPassword() {
             var password = prompt("パスワードを入力してください:");
-            if (password === "Aruha_ghost") 
+            if (password === "Aruha_ghost") { // ← ここがパスワード
                 document.getElementById("content").style.display = "block";
                 document.getElementById("lock").style.display = "none";
             } else {
                 alert("パスワードが違います！");
+                location.reload(); // ページをリロードして再入力させる
             }
         }
     </script>
