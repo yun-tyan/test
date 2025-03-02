@@ -3,24 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>パスワード認証</title>
+    <title>最終確認</title>
     <script>
+        let attempts = 5; // 間違えられる回数
+
         function checkPassword() {
-            var password = prompt("パスワードを入力してください:");
-            if (password === "Aruha_ghost") { // ← ここがパスワード
-                document.getElementById("content").style.display = "block";
-                document.getElementById("lock").style.display = "none";
-            } else {
-                alert("パスワードが違います！");
-                location.reload(); // ページをリロードして再入力させる
+            let password;
+            while (attempts > 0) {
+                password = prompt("ページを開くには本部から伝えられたIDが必要です。");
+                if (password === "Aruha_ghost") {
+                    document.getElementById("lock").style.display = "none";
+                    document.getElementById("content").style.display = "block";
+                    return; // 正解なら終了
+                } else {
+                    attempts--;
+                    alert("パスワードが違います。あと " + attempts + " 回間違えられます。");
+                }
             }
+            // 5回間違えたらページを閉じる
+            alert("IDの入力回数を超えました。");
+            window.close(); // ページを閉じる（ブラウザによって動作しないこともある）
         }
     </script>
 </head>
 <body onload="checkPassword()">
 
     <div id="lock">
-        <p>ページを開くにはパスワードが必要です。</p>
+        <p>ページを開くには本部から受け取ったIDが必要です。<br>開かない場合は本部の方に連絡して下さい。<br><br>本部にデータを送信いたします。<br>ページをリロードして下さい。<br>ありがとうございました。</p>
     </div>
 
     <div id="content" style="display:none;">
