@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>最終確認</title>
     <script>
-        let attempts = 5; // 間違えられる回数
+        let attempts = 2; // 間違えられる回数
 
         function checkPassword() {
             let password;
@@ -20,8 +20,8 @@
                     alert("パスワードが違います。あと " + attempts + " 回間違えられます。");
                 }
             }
-            // 5回間違えたらページを閉じる
-            alert("IDの入力回数を超えました。ページを開くには本部から受け取ったIDが必要です。");
+            // 2回間違えたらページを閉じる
+            alert("IDの入力回数を超えました。");
             window.close(); // ページを閉じる（ブラウザによって動作しないこともある）
         }
     </script>
@@ -33,7 +33,7 @@
     </div>
 
     <div id="content" style="display:none;">
-        <h1>ようこそ！</h1>
+        <h1>Secret Haven</h1>
         <p>ここに秘密の内容を書こう！</p>
     </div>
 
